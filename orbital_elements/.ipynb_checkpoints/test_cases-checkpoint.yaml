@@ -1,0 +1,22 @@
+test_cases:
+  - name: "Low Earth Orbit, circular"
+    r: [7000, 0, 0]
+    v: [0, 7.546, 1.0]
+    expected:
+      eccentricity: 0.0
+      inclination: 7.57   # in degrees
+      tolerance: 0.5
+
+  - name: "Highly Elliptical Orbit"
+    r: [10000, 0, 0]
+    v: [0, 4.5, 3.5]
+    expected:
+      eccentricity: 0.73
+      tolerance: 0.05
+
+  - name: "Polar Orbit"
+    r: [0, -7078, 0]
+    v: [7.5, 0, 0]
+    expected:
+      inclination: 90.0
+      tolerance: 0.5

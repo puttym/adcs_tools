@@ -1,0 +1,3 @@
+state_vector:
+  position: [7000, 0, 0]     # km
+  velocity: [0, 7.5, 1.0]    # km/s

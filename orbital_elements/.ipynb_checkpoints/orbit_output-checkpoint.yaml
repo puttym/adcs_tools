@@ -1,0 +1,37 @@
+h (km^2/s): !!python/object/apply:numpy._core.multiarray.scalar
+- &id001 !!python/object/apply:numpy.dtype
+  args:
+  - f8
+  - false
+  - true
+  state: !!python/tuple
+  - 3
+  - <
+  - null
+  - null
+  - null
+  - -1
+  - -1
+  - 0
+- !!binary |
+  8vbji5Pc6UA=
+i (deg): !!python/object/apply:numpy._core.multiarray.scalar
+- *id001
+- !!binary |
+  vojzMOpgHkA=
+RAAN (deg): !!python/object/apply:numpy._core.multiarray.scalar
+- *id001
+- !!binary |
+  AAAAAAAAAAA=
+e: !!python/object/apply:numpy._core.multiarray.scalar
+- *id001
+- !!binary |
+  tMJAH7kWdj8=
+omega (deg): !!python/object/apply:numpy._core.multiarray.scalar
+- *id001
+- !!binary |
+  AAAAAAAAAAA=
+nu (deg): !!python/object/apply:numpy._core.multiarray.scalar
+- *id001
+- !!binary |
+  AAAAAAAAAAA=
