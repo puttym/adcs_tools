@@ -1,0 +1,59 @@
+design_doc:
+  purpose: Compute Classical Orbital Elements (COEs) from state vector
+  input:
+    format: YAML
+    contents:
+      - position_vector: [x, y, z] in km
+      - velocity_vector: [vx, vy, vz] in km/s
+      - mu: gravitational parameter (default Earth)
+  output:
+    - dict: in-program use
+    - cli_table: 2 decimals for human verification
+    - yaml_file: full float64 precision
+  class:
+    name: ClassicalOrbitalElements
+    methods:
+      - name: __init__
+        purpose: Initialize position, velocity, and mu
+      - name: _validate_input
+        purpose: Ensure vectors are valid (non-zero, finite, numeric)
+      - name: calculate
+        purpose: Compute h, i, RAAN, e, omega, nu
+      - name: summary
+        purpose: Display COEs as pretty table (2 decimals)
+      - name: save_to_yaml
+        purpose: Save COEs to YAML file (full precision)
+  error_handling:
+    - invalid_inputs: raise ValueError
+    - methods_called_out_of_order: raise RuntimeError
+  testing:
+    framework: pytest
+    input: YAML test file
+    edge_cases:
+      - zero_vectors
+      - circular_orbit
+      - equatorial_orbit
+      - polar_orbit
+      - degenerate_cases
+    output:
+      - dict
+      - cli_table
+  data_flow:
+    - step: load_input
+      from: yaml_file
+      to: __init__
+    - step: validate
+      from: __init__
+      to: _validate_input
+    - step: compute
+      from: _validate_input
+      to: calculate
+      output: coe_dict
+    - step: human_readable
+      from: coe_dict
+      to: summary
+      output: cli_table
+    - step: machine_readable
+      from: coe_dict
+      to: save_to_yaml
+      output: yaml_file
