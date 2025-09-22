@@ -1,5 +1,5 @@
 import yaml
-from coe import ClassicalOrbitalElements
+from core import ClassicalOrbitalElements
 
 def main():
     # Load state vector from YAML
